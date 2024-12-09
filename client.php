@@ -17,7 +17,9 @@ include('db.php');
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
-            <div class="p-6 text-center text-2xl font-bold">Location de Voitures</div>
+            <div class="p-6 border-b flex flex-row justify-between items-center">
+                <img src="./safaa logo.svg">
+            </div>
             <nav class="mt-10">
                 <ul class="flex flex-col gap-6">
                    <li class="px-6 py-2 hover:bg-blue-700">
@@ -67,7 +69,7 @@ include('db.php');
             <section>
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold text-gray-700">Gestion des Clients</h3>
-                    <button onclick="toggleUppClientModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
+                    <button onclick="toggleAddClientModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
                         <i class="ri-sticky-note-add-line"></i>    
                         <span>Ajouter un Client</span>
                     </button>
@@ -88,6 +90,8 @@ include('db.php');
                         </tr>
                         </thead>
                         <tbody>
+                         <?php 
+                         echo `
                         <tr class="hover:bg-gray-50 transition">
                                 <td class="border border-gray-200 px-4 py-2 text-center">1</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">Ettalhi</td>
@@ -105,7 +109,8 @@ include('db.php');
                                         <span>Supprimer</span>
                                     </button>
                                 </td>
-                            </tr>
+                        </tr> `
+                          ?>  
                         </tbody>
                     </table>
                 </div>
@@ -118,7 +123,7 @@ include('db.php');
         <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-blue-600 mx-auto">Ajouter le Client</h3>
-                <button class="text-gray-500 hover:text-gray-700 closeUppClient">
+                <button class="text-gray-500 hover:text-gray-700 closeAddClient">
                     <i class="ri-close-circle-line text-2xl"></i>
                 </button>
             </div>
@@ -146,7 +151,7 @@ include('db.php');
                     <textarea id="address" name="address" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                 </div>
                 <div class="mt-6 flex justify-end space-x-2">
-                    <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeUppClient">Annuler</button>
+                    <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeAddClient">Annuler</button>
                     <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
                 </div>
             </form>
