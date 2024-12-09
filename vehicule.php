@@ -90,24 +90,30 @@ include('db.php');
                         </tr>
                         </thead>
                         <tbody>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Audi</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Q8</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">2020</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">700DH</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Disponible</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
-                                    <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2 ">
-                                        <i class="ri-loop-left-line"></i>
-                                        <span>Modifier</span>  
-                                    </button>
-                                    <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
-                                        <i class="ri-delete-bin-6-line"></i>
-                                        <span>Supprimer</span>
-                                    </button>
-                                </td>
-                            </tr>
+                        <?php  
+                            while($row = $resultVoit->fetch_assoc()){ 
+                                echo '
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['id'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['marque'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['modele'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['annee'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['prix_jour'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['statut'] . '</td> 
+                                    <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
+                                        <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2 ">
+                                            <i class="ri-loop-left-line"></i>
+                                            <span>Modifier</span>  
+                                        </button>
+                                        <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
+                                            <i class="ri-delete-bin-6-line"></i>
+                                            <span>Supprimer</span>
+                                        </button>
+                                    </td>
+                                </tr>';
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
