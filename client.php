@@ -91,14 +91,15 @@ include('db.php');
                         </thead>
                         <tbody>
                          <?php 
-                         echo `
-                        <tr class="hover:bg-gray-50 transition">
-                                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Ettalhi</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Safaa</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">safaa@example.com</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">0612345678</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">Ruekech,Safi</td>
+                         while ($row = $result->fetch_assoc()) {
+                            echo '
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['id'] . '</td>
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['nom'] . '</td>
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['prenom'] . '</td>
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['email'] . '</td>
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['telephone'] . '</td>
+                                <td class="border border-gray-200 px-4 py-2 text-center">' . $row['adresse'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
                                     <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2 ">
                                         <i class="ri-loop-left-line"></i>
@@ -109,7 +110,8 @@ include('db.php');
                                         <span>Supprimer</span>
                                     </button>
                                 </td>
-                        </tr> `
+                            </tr>';
+    }                           
                           ?>  
                         </tbody>
                     </table>
