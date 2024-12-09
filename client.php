@@ -101,14 +101,14 @@ include('db.php');
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['telephone'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['adresse'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
-                                    <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2 ">
-                                        <i class="ri-loop-left-line"></i>
-                                        <span>Modifier</span>  
-                                    </button>
-                                    <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
-                                        <i class="ri-delete-bin-6-line"></i>
-                                        <span>Supprimer</span>
-                                    </button>
+                                   <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2">
+                                       <i class="ri-loop-left-line"></i>
+                                       <span>Modifier</span>  
+                                   </button>
+                                   <a href="./deleteClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
+                                            <i class="ri-delete-bin-6-line"></i>
+                                            <span>Supprimer</span>
+                                   </a>
                                 </td>
                             </tr>';
     }                           
@@ -129,32 +129,32 @@ include('db.php');
                     <i class="ri-close-circle-line text-2xl"></i>
                 </button>
             </div>
-            <form>
+            <form action="./addClient.php" method="post">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
-                        <input type="text" id="first-name" name="first-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="nom" class="block text-sm font-medium text-gray-700" >Prénom</label>
+                        <input type="text" id="nom" name="nom" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="last-name" class="block text-sm font-medium text-gray-700">Nom</label>
-                        <input type="text" id="last-name" name="last-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="prenom" class="block text-sm font-medium text-gray-700">Nom</label>
+                        <input type="text" id="prenom" name="prenom" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                         <input type="email" id="email" name="email" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
-                        <input type="text" id="phone" name="phone" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="telephone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                        <input type="text" id="telephone" name="telephone" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                 </div>
                 <div class="mt-4">
                     <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
-                    <textarea id="address" name="address" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    <textarea id="address" name="adresse" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                 </div>
                 <div class="mt-6 flex justify-end space-x-2">
                     <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeAddClient">Annuler</button>
-                    <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
+                    <button type="submit" name="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
                 </div>
             </form>
         </div>

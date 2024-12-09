@@ -107,10 +107,10 @@ include('db.php');
                                             <i class="ri-loop-left-line"></i>
                                             <span>Modifier</span>  
                                         </button>
-                                        <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
+                                        <a href="./deleteContract.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
                                             <i class="ri-delete-bin-6-line"></i>
                                             <span>Supprimer</span>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>';
     }                       ?>
