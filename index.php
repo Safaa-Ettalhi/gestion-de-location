@@ -71,19 +71,59 @@ include('db.php');
              <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow text-center">
                     <h3 class="text-lg font-bold text-gray-600">Nombre de Clients</h3>
-                    <p class="text-4xl font-bold text-blue-700 ">50</p>
+                    <?php
+
+                      $row = $nbrClient->fetch_row();
+                      if($row){
+                        echo'
+                        <p class="text-4xl font-bold text-blue-700 ">' . $row[0] . '</p>';
+                      }else{
+                        echo'
+                        <p class="text-4xl font-bold text-blue-700 ">0</p>';
+                      }
+                    ?>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow text-center">
                     <h3 class="text-lg font-bold text-gray-600">Nombre de Voitures</h3>
-                    <p class="text-4xl font-bold text-green-600 ">33</p>
+                    <?php
+
+                        $row = $nbrVoit->fetch_row();
+                        if($row){
+                            echo'
+                            <p class="text-4xl font-bold text-green-600 ">' . $row[0] . '</p>';
+                        }else{
+                            echo'
+                            <p class="text-4xl font-bold text-green-600 ">0</p>';
+                            }
+                    ?>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow text-center">
                     <h3 class="text-lg font-bold text-gray-600">Voitures Louées</h3>
-                    <p class="text-4xl font-bold text-red-600 ">10</p>
+                    <?php
+
+                        $row = $nbrVoiLouer->fetch_row();
+                        if($row){
+                            echo'
+                            <p class="text-4xl font-bold text-red-600 ">' . $row[0] . '</p>';
+                        }else{
+                            echo'
+                            <p class="text-4xl font-bold text-red-600 ">0</p>';
+                            }
+                    ?>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow text-center">
                     <h3 class="text-lg font-bold text-gray-600">Voitures Disponibles</h3>
-                    <p class="text-4xl font-bold text-yellow-500 ">23</p>
+                    <?php
+
+                        $row = $nbrVoiDisp->fetch_row();
+                        if($row){
+                            echo'
+                            <p class="text-4xl font-bold text-yellow-500 ">' . $row[0] . '</p>';
+                        }else{
+                            echo'
+                            <p class="text-4xl font-bold text-yellow-500 ">0</p>';
+                            }
+                    ?>
                 </div>
             </section>
 
