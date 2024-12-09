@@ -20,7 +20,9 @@ include('db.php');
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row ">
         <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
-            <div class="p-6 text-center text-2xl font-bold">Location de Voitures</div>
+            <div class="p-6 border-b flex justify-between items-center ">
+                <img src="./safaa logo.svg">
+            </div>
             <nav class="mt-10">
                 <ul class="flex flex-col gap-6">
                    <li class="px-6 py-2 bg-blue-700">
