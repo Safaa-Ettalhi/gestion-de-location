@@ -91,25 +91,29 @@ include('db.php');
                         </tr>
                         </thead>
                         <tbody>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">safaa</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">AUDi</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">12/12/2024</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center">22/12/2024</td>
-                                <th class="border border-gray-300 px-4 py-2">Statut</th>
-                                <th class="border border-gray-300 px-4 py-2">En cours</th>
-                                <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
-                                    <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2 ">
-                                        <i class="ri-loop-left-line"></i>
-                                        <span>Modifier</span>  
-                                    </button>
-                                    <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
-                                        <i class="ri-delete-bin-6-line"></i>
-                                        <span>Supprimer</span>
-                                    </button>
-                                </td>
-                            </tr>
+                            <?php
+                        while ($row = $resultCont->fetch_assoc()) {
+                          echo '
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['id'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['nom'] . ' ' . $row['prenom'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['marque'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['date_debut'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['date_fin'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['total'] . ' €</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center">' . $row['statut'] . '</td>
+                                    <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
+                                        <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2">
+                                            <i class="ri-loop-left-line"></i>
+                                            <span>Modifier</span>  
+                                        </button>
+                                        <button class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
+                                            <i class="ri-delete-bin-6-line"></i>
+                                            <span>Supprimer</span>
+                                        </button>
+                                    </td>
+                                </tr>';
+    }                       ?>
                         </tbody>
                     </table>
                 </div>
