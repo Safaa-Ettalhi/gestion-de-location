@@ -19,7 +19,7 @@ include('db.php');
 
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row ">
-        <div class="w-full md:w-64 h-[450px] md:h-screen rounded-r bg-blue-800 text-white " id="sidebar">
+        <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
             <div class="p-6 text-center text-2xl font-bold">Location de Voitures</div>
             <nav class="mt-10">
                 <ul class="flex flex-col gap-6">
@@ -53,17 +53,17 @@ include('db.php');
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 p-4 md:p-6 space-y-6 md:h-screen">
-            <header class="flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0" id='header'>
-                    <i class="ri-sidebar-fold-line text-2xl mt-2 text-blue-800 hover:text-gray-700 transition"
-                        id="sidebarIcon"></i>
-                    <h2 class="text-2xl font-bold">Welcome Safaa</h2>
-                    <div class="flex items-center space-x-4">
-                        <button class="text-gray-500 hover:text-gray-700">
-                            <i class="ri-notification-line text-xl"></i>
-                        </button>
-                        <img src="./safaa.jpg" alt="User" class="w-10 h-10 rounded-full">
-                    </div>
+        <main class="flex-1 p-4 md:p-6 space-y-6">
+            <!-- Header -->
+            <header class="flex items-center justify-between space-y-4">
+                <i class="ri-sidebar-fold-line text-2xl text-blue-800 hover:text-gray-700 transition" id="sidebarIcon"></i>
+                <h2 class="text-2xl font-bold text-blue-800">Bienvenue, Safaa</h2>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i class="ri-notification-line text-xl"></i>
+                    </button>
+                    <img src="./safaa.jpg" alt="User" class="w-10 h-10 rounded-full shadow-md">
+                </div>
             </header>
              <!-- Cards -->
              <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
