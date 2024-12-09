@@ -113,6 +113,44 @@ include('db.php');
         </main>
     </div>
 
-    
+    <!-- Modal pour ajouter un client -->
+    <div id="AddClientModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-blue-600 mx-auto">Ajouter le Client</h3>
+                <button class="text-gray-500 hover:text-gray-700 closeUppClient">
+                    <i class="ri-close-circle-line text-2xl"></i>
+                </button>
+            </div>
+            <form>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
+                        <input type="text" id="first-name" name="first-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="last-name" class="block text-sm font-medium text-gray-700">Nom</label>
+                        <input type="text" id="last-name" name="last-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                        <input type="text" id="phone" name="phone" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
+                    <textarea id="address" name="address" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                </div>
+                <div class="mt-6 flex justify-end space-x-2">
+                    <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeUppClient">Annuler</button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
