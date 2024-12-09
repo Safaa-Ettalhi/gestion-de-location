@@ -67,7 +67,7 @@ include('db.php');
             <section>
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold text-gray-700">Gestion des Voitures</h3>
-                    <button onclick="toggleUppClientModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
+                    <button onclick="toggleAddVoitModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
                         <i class="ri-sticky-note-add-line"></i>    
                         <span>Ajouter une Voitures</span>
                     </button>
