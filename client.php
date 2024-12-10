@@ -10,13 +10,14 @@ include('db.php');
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <script src="./script.js" defer></script>
+    
 
 </head>
 <body class="bg-gray-100 ">
 
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
+        <div class="w-full md:w-64 h-[450px] md:h-auto rounded-r bg-blue-800 text-white " id="sidebar">
             <div class="p-6 border-b flex flex-row justify-between items-center">
                 <img src="./safaa logo.svg">
             </div>
@@ -67,16 +68,30 @@ include('db.php');
 
             <!-- Section Gestion des Clients -->
             <section>
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-2xl font-bold text-gray-700">Gestion des Clients</h3>
-                    <button onclick="toggleAddClientModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
+                <div class="flex justify-center md:justify-between md:items-center mb-4">
+                    <h3 class=" text-2xl  font-bold text-gray-700">Gestion des Clients</h3>
+                    <button onclick="toggleAddClientModal()" class="hidden md:flex md:px-4 md:py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-1">
                         <i class="ri-sticky-note-add-line"></i>    
                         <span>Ajouter un Client</span>
                     </button>
                 </div>
+                <div class="flex items-center justify-between mt-10 mb-4 md:hidden">
+                    <input 
+                        type="text" 
+                        placeholder="Rechercher un client" 
+                        class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm   "
+                    />
+                    <button 
+                        onclick="toggleAddClientModal()" 
+                        class="px-2 py-2 ml-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-1"
+                    >
+                        <i class="ri-sticky-note-add-line"></i>    
+                        <span>Ajouter Client</span>
+                </button>
+                </div>
 
                 <!-- Tableau des clients -->
-                <div class="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
+                <div class="relative bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
                     <table class="min-w-full border-collapse border border-gray-200 text-sm">
                         <thead class="bg-blue-600 text-white">
                         <tr>
@@ -100,8 +115,8 @@ include('db.php');
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['email'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['telephone'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['adresse'] . '</td>
-                                <td class="border border-gray-200 px-4 py-2 text-center flex space-x-4 justify-center">
-                                   <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2">
+                                <td class="border-t border-gray-200 px-4 py-2 text-center items-center flex space-x-4 justify-center">
+                                   <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2" onclick="showEditClientModal('. $row['id'] .')">
                                        <i class="ri-loop-left-line"></i>
                                        <span>Modifier</span>  
                                    </button>
@@ -124,7 +139,7 @@ include('db.php');
     <div id="AddClientModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-blue-600 mx-auto">Ajouter le Client</h3>
+                <h3 class="text-xl font-bold text-blue-600 mx-auto titre">Ajouter le Client</h3>
                 <button class="text-gray-500 hover:text-gray-700 closeAddClient">
                     <i class="ri-close-circle-line text-2xl"></i>
                 </button>
@@ -152,12 +167,13 @@ include('db.php');
                     <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
                     <textarea id="address" name="adresse" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                 </div>
-                <div class="mt-6 flex justify-end space-x-2">
+                <div class="mt-6 flex justify-center space-x-2">
                     <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeAddClient">Annuler</button>
                     <button type="submit" name="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
                 </div>
             </form>
         </div>
     </div>
+    <script src="./modifier.js" ></script>
 </body>
 </html>

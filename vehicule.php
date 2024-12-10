@@ -17,7 +17,7 @@ include('db.php');
 
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row ">
-        <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
+        <div class="w-full md:w-64 h-[450px] md:h-auto rounded-r bg-blue-800 text-white " id="sidebar">
             <div class="p-6 border-b flex flex-row justify-between items-center">
                 <img src="./safaa logo.svg">
             </div>
@@ -130,32 +130,37 @@ include('db.php');
                     <i class="ri-close-circle-line text-2xl"></i>
                 </button>
             </div>
-            <form>
+            <form action="./addVoit.php" method="post">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="first-name" class="block text-sm font-medium text-gray-700">Prénom</label>
-                        <input type="text" id="first-name" name="first-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="marque" class="block text-sm font-medium text-gray-700">Marque</label>
+                        <input type="text" id="marque" name="marque" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="last-name" class="block text-sm font-medium text-gray-700">Nom</label>
-                        <input type="text" id="last-name" name="last-name" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="model" class="block text-sm font-medium text-gray-700">Modele</label>
+                        <input type="text" id="model" name="modele" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="annee" class="block text-sm font-medium text-gray-700">Année</label>
+                        <input type="number" id="annee" name="annee" placeholder="Y-Y-Y-Y" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
-                        <input type="text" id="phone" name="phone" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <label for="prix" class="block text-sm font-medium text-gray-700">Prix_jour</label>
+                        <input type="number"  step="0.01"  id="prix_jour" name="prix_jour" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
                 </div>
                 <div class="mt-4">
-                    <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
-                    <textarea id="address" name="address" rows="3" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    <label for="statut" class="block text-sm font-medium text-gray-700">Statut</label>
+                    <select id="statut" name="statut" 
+                        class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Louée">Louée</option>
+                        <option value="Entretien">Entretien</option>
+                    </select>
                 </div>
                 <div class="mt-6 flex justify-end space-x-2">
                     <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 closeAddVoit">Annuler</button>
-                    <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
+                    <button type="submit" name="submit"  class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Enregistrer</button>
                 </div>
             </form>
         </div>

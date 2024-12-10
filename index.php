@@ -19,7 +19,7 @@ include('db.php');
 
     <!-- Sidebar -->
     <div class="flex flex-col md:flex-row ">
-        <div class="w-full md:w-64 h-[450px] md:min-h-screen lg:md:min-h-screen rounded-r bg-blue-800 text-white " id="sidebar">
+        <div class="w-full md:w-64 h-[450px] md:h-auto rounded-r bg-blue-800 text-white " id="sidebar">
             <div class="p-6 border-b flex justify-between items-center ">
                 <img src="./safaa logo.svg">
             </div>
