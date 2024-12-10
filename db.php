@@ -22,7 +22,7 @@ $sql = "SELECT * FROM voitures";
 $resultVoit = $conn->query($sql);
 
 //récupérer les données des Contrats
-$sql = "SELECT c.id, cl.nom, cl.prenom, v.marque, c.date_debut, c.date_fin, c.total, c.statut
+$sql = "SELECT c.id, cl.nom, cl.prenom, v.marque,v.modele, c.date_debut, c.date_fin, c.total, c.statut
         FROM contrats c
         JOIN clients cl ON c.id_client = cl.id
         JOIN voitures v ON c.id_voiture = v.id";
