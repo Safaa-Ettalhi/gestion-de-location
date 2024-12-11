@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -116,10 +117,10 @@ include('db.php');
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['telephone'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['adresse'] . '</td>
                                 <td class="border-t border-gray-200 px-4 py-2 text-center items-center flex space-x-4 justify-center">
-                                   <button class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2" onclick="showEditClientModal('. $row['id'] .')">
+                                <a href="./UppClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2" >
                                        <i class="ri-loop-left-line"></i>
                                        <span>Modifier</span>  
-                                   </button>
+                                </a>
                                    <a href="./deleteClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
                                             <i class="ri-delete-bin-6-line"></i>
                                             <span>Supprimer</span>
@@ -148,7 +149,7 @@ include('db.php');
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label for="nom" class="block text-sm font-medium text-gray-700" >Prénom</label>
-                        <input type="text" id="nom" name="nom" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <input type="text" id="nom" name="nom" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"  required>
                     </div>
                     <div>
                         <label for="prenom" class="block text-sm font-medium text-gray-700">Nom</label>
@@ -174,6 +175,7 @@ include('db.php');
             </form>
         </div>
     </div>
-    <script src="./modifier.js" ></script>
+
+   
 </body>
 </html>
