@@ -76,12 +76,8 @@ include('db.php');
                         <span>Ajouter un Client</span>
                     </button>
                 </div>
-                <div class="flex items-center justify-between mt-10 mb-4 md:hidden">
-                    <input 
-                        type="text" 
-                        placeholder="Rechercher un client" 
-                        class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm   "
-                    />
+                <div class="flex justify-end md:hidden">
+                    
                     <button 
                         onclick="toggleAddClientModal()" 
                         class="px-2 py-2 ml-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-1"
@@ -117,14 +113,14 @@ include('db.php');
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['telephone'] . '</td>
                                 <td class="border border-gray-200 px-4 py-2 text-center">' . $row['adresse'] . '</td>
                                 <td class="border-t border-gray-200 px-4 py-2 text-center items-center flex space-x-4 justify-center">
-                                <a href="./UppClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2" >
-                                       <i class="ri-loop-left-line"></i>
-                                       <span>Modifier</span>  
-                                </a>
-                                   <a href="./deleteClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
-                                            <i class="ri-delete-bin-6-line"></i>
-                                            <span>Supprimer</span>
-                                   </a>
+                                    <a href="./UppClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex gap-2" >
+                                        <i class="ri-loop-left-line"></i>
+                                        <span>Modifier</span>  
+                                    </a>
+                                    <a href="./deleteClient.php?id=' . $row['id'] . ' " class="px-3 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 flex gap-2">
+                                                <i class="ri-delete-bin-6-line"></i>
+                                                <span>Supprimer</span>
+                                    </a>
                                 </td>
                             </tr>';
     }                           
