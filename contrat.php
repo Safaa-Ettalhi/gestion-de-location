@@ -67,14 +67,24 @@ include('db.php');
             </header>
             <!-- Section Gestion des Clients -->
             <section>
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex justify-center md:justify-between md:items-center mb-4">
                     <h3 class="text-2xl font-bold text-gray-700">Gestion des Contrats</h3>
-                    <button onclick="toggleADDContratModal()" class="px-4 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-2">
+                    <button onclick="toggleADDContratModal()" class="hidden md:flex md:px-4 md:py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-1">
                         <i class="ri-sticky-note-add-line"></i>    
                         <span>Ajouter un Contrat</span>
                     </button>
                 </div>
-
+                
+                <div class="flex justify-end md:hidden">
+                    
+                    <button 
+                        onclick="toggleADDContratModal()" 
+                        class="px-2 py-2 ml-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 flex gap-1"
+                    >
+                        <i class="ri-sticky-note-add-line"></i>    
+                        <span>Ajouter un Contrat</span>
+                </button>
+                </div>
                 <!-- Tableau des clients -->
                 <div class="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
                     <table class="min-w-full border-collapse border border-gray-200 text-sm">
