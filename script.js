@@ -9,7 +9,7 @@ sidebarIcon.addEventListener('click', () => {
 // 
 function toggleAddClientModal() {
    const modal = document.getElementById('AddClientModal');
-   modal.classList.toggle('hidden');
+   modal.classList.remove('hidden');
 }
 const addclientmdl = document.getElementById('AddClientModal')
 const closeAddClient = document.querySelectorAll('.closeAddClient');
