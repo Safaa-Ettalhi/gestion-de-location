@@ -1,5 +1,22 @@
 <?php
 include('db.php');
+// Nouvelle variable pour exécuter la requête SQL
+$queryResult = "
+    SELECT v.marque AS marque, COUNT(co.id) AS nombre_contrats
+    FROM voitures v
+    JOIN contrats co ON v.id = co.id_voiture
+    GROUP BY v.marque
+";
+
+$result = $conn->query($queryResult); 
+
+$labels = [];
+$data = [];
+
+while ($row = $result->fetch_assoc()) {
+    $labels[] = $row['marque']; 
+    $data[] = $row['nombre_contrats']; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -133,20 +150,121 @@ include('db.php');
                 <canvas id="voituresChart" class="mt-2"></canvas>
             </section>
 
-            <!-- Recent Activities -->
-            <section class="bg-white p-6 rounded-lg shadow">
+        
                 <h3 class="text-lg font-bold text-gray-600">Activités Récentes</h3>
-                <ul class="mt-4 space-y-2">
-                    <!-- <?php while ($row = mysqli_fetch_assoc($dernieres_activites)): ?>
-                        <li class="flex justify-between text-gray-700">
-                            <span><?php echo $row['description']; ?></span>
-                            <span class="text-sm text-gray-500"><?php echo $row['date']; ?></span>
-                        </li>
-                    <?php endwhile; ?> -->
-                </ul>
-            </section>
+                <table class="min-w-full border-collapse  text-sm">
+                    <thead class="bg-blue-600 text-white">
+                        <tr>
+                            <th class="px-4 py-2 text-left font-semibold">Client</th>
+                            <th class="px-4 py-2 text-left font-semibold">Voiture</th>
+                            <th class="px-4 py-2 text-left font-semibold">Date Début</th>
+                            <th class="px-4 py-2 text-left font-semibold">Date Fin</th>
+                            <th class="px-4 py-2 text-left font-semibold">Description</th>
+                            <th class="px-4 py-2 text-left font-semibold">Date de l'Activité</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                     
+
+                        $result = $conn->query("SELECT 
+                            c.nom AS client,
+                            v.marque AS voiture,
+                            co.date_debut,
+                            co.date_fin,
+                            a.description,
+                            a.created_at
+                        FROM activites a
+                        JOIN contrats co ON a.id_contrat = co.id
+                        JOIN clients c ON co.id_client = c.id
+                        JOIN voitures v ON co.id_voiture = v.id
+                        ORDER BY a.created_at DESC  LIMIT 5
+                        ");
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td class='px-4 py-2'>{$row['client']}</td>";
+                            echo "<td class='px-4 py-2'>{$row['voiture']}</td>";
+                            echo "<td class='px-4 py-2'>{$row['date_debut']}</td>";
+                            echo "<td class='px-4 py-2'>{$row['date_fin']}</td>";
+                            echo "<td class='px-4 py-2'>{$row['description']}</td>";
+                            echo "<td class='px-4 py-2'>{$row['created_at']}</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6' class='px-4 py-2 text-center text-gray-500'>Aucune activité récente</td></tr>";
+                    }
+
+?>
+
+                    </tbody>
+
+    </table>
+</section> -->
+
+
       </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
     
+    const labels = <?php echo json_encode($labels); ?>;
+    const data = <?php echo json_encode($data); ?>;
+
+  
+    const dataVoitures = {
+        labels: labels, 
+        datasets: [{
+            label: 'Nombre de contrats',
+            data: data, 
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+
+    const configVoituresChart = {
+        type: 'bar', 
+        data: dataVoitures,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Nombre de contrats par marque de voiture'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true 
+                }
+            }
+        }
+    };
+
+    
+    const voituresChart = new Chart(
+        document.getElementById('voituresChart'),
+        configVoituresChart
+    );
+</script>
 </body>
 </html>
