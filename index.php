@@ -151,58 +151,8 @@ while ($row = $result->fetch_assoc()) {
             </section>
 
         
-                <h3 class="text-lg font-bold text-gray-600">Activités Récentes</h3>
-                <table class="min-w-full border-collapse  text-sm">
-                    <thead class="bg-blue-600 text-white">
-                        <tr>
-                            <th class="px-4 py-2 text-left font-semibold">Client</th>
-                            <th class="px-4 py-2 text-left font-semibold">Voiture</th>
-                            <th class="px-4 py-2 text-left font-semibold">Date Début</th>
-                            <th class="px-4 py-2 text-left font-semibold">Date Fin</th>
-                            <th class="px-4 py-2 text-left font-semibold">Description</th>
-                            <th class="px-4 py-2 text-left font-semibold">Date de l'Activité</th>
-                        </tr>
-                    </thead>
+        
 
-                    <tbody>
-                        <?php
-                     
-
-                        $result = $conn->query("SELECT 
-                            c.nom AS client,
-                            v.marque AS voiture,
-                            co.date_debut,
-                            co.date_fin,
-                            a.description,
-                            a.created_at
-                        FROM activites a
-                        JOIN contrats co ON a.id_contrat = co.id
-                        JOIN clients c ON co.id_client = c.id
-                        JOIN voitures v ON co.id_voiture = v.id
-                        ORDER BY a.created_at DESC  LIMIT 5
-                        ");
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td class='px-4 py-2'>{$row['client']}</td>";
-                            echo "<td class='px-4 py-2'>{$row['voiture']}</td>";
-                            echo "<td class='px-4 py-2'>{$row['date_debut']}</td>";
-                            echo "<td class='px-4 py-2'>{$row['date_fin']}</td>";
-                            echo "<td class='px-4 py-2'>{$row['description']}</td>";
-                            echo "<td class='px-4 py-2'>{$row['created_at']}</td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='6' class='px-4 py-2 text-center text-gray-500'>Aucune activité récente</td></tr>";
-                    }
-
-?>
-
-                    </tbody>
-
-    </table>
-</section> -->
 
 
       </main>
